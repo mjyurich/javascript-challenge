@@ -33,9 +33,14 @@ function runEnter() {
     //Select the input element and get the raw HTML node
     var inputElement = d3.select("#form-control");
 
+    // Get the value property of the input element
     var inputValue = inputElement.property("value");
 
     console.log(inputValue);
     console.log(people);
-}
+
+    var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
+
+    console.log(filteredData);
+};
 
