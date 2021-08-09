@@ -15,7 +15,7 @@ data.forEach((alienSighting) => {
 });
 
 //Select the Button
-var button = d3.select("filter-btn");
+var button = d3.select(".filter-btn");
 
 //Select the form
 var form = d3.select("#form");
@@ -31,16 +31,28 @@ function runEnter() {
     d3.event.preventDefault();
 
     //Select the input element and get the raw HTML node
-    var inputElement = d3.select("#form-control");
+    var inputElement = d3.select(".form-control");
 
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
 
     console.log(inputValue);
-    console.log(people);
+    console.log(tableData);
 
-    var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
-
+    var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
     console.log(filteredData);
+
+    buildTable(filteredData);
+};
+
+function buildTable(datafilter) {
+
+    datafilter.forEach((datetime) => {
+        var row = tbody.append("tr");
+        Object.entries(datetime).forEach(([key, value]) => {
+            var cell = tbody.append("td");
+            cell.text(value);
+        });
+    });
 };
 
