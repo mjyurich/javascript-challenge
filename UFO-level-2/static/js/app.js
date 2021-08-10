@@ -1,14 +1,14 @@
 // from data.js
 var tableData = data;
 
-// YOUR CODE HERE!
+
 //UFO sightings will be put into the table body
 var tbody = d3.select("tbody");
 
 console.log(data);
 
 //UFO sighting values for each column
-data.forEach((alienSighting) => {
+tableData.forEach((alienSighting) => {
 
     //append one table row for each UFO sighting object
     var row = tbody.append("tr");
@@ -70,4 +70,4 @@ filteredData.forEach(function(selections) {
         cell.text(value);
     });
 });
-});
+};
